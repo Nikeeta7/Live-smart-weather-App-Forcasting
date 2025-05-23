@@ -1,0 +1,261 @@
+:root {
+  --color-primary: #0069ff;
+  --color-bg-light: #f5f8ff;
+  --color-bg-dark: #121212;
+  --color-text-light: #222;
+  --color-text-dark: #ddd;
+
+  --icon-color-light: #0069ff;
+  --icon-color-dark: #90caff;
+  --box-bg-light: #fff;
+  --box-bg-dark: #1f1f1f;
+  --box-shadow-light: rgba(0, 105, 255, 0.15);
+  --box-shadow-dark: rgba(144, 202, 255, 0.3);
+}
+
+body {
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  color: var(--color-text-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background-color: var(--color-bg-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 40px;
+}
+
+body.dark-theme {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+  background: linear-gradient(to right, #1e1e1e, #2c3e50);
+  color: #f0f0f0;
+}
+
+.app-container {
+  max-width: 460px;
+  width: 100%;
+  border-radius: 14px;
+  padding: 25px;
+  background: var(--box-bg-light);
+  box-shadow: 0 8px 24px var(--box-shadow-light);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .app-container {
+  background: var(--box-bg-dark);
+  box-shadow: 0 8px 24px var(--box-shadow-dark);
+}
+
+.top-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0, 105, 255, 0.4);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: #004dc4;
+  box-shadow: 0 4px 12px rgba(0, 77, 196, 0.6);
+}
+
+.temp-toggle.active {
+  background: #004dc4;
+}
+
+.search-row {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 8px;
+}
+
+#city-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #c0c7d6;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+#city-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 6px var(--color-primary);
+}
+
+#search-btn, #geo-btn {
+  border-radius: 10px;
+  width: 45px;
+  font-size: 1.4rem;
+  background: var(--color-primary);
+  box-shadow: 0 3px 8px rgba(0, 105, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+#search-btn:hover, #geo-btn:hover {
+  background: #004dc4;
+  box-shadow: 0 4px 12px rgba(0, 77, 196, 0.6);
+}
+
+.weather {
+  display: none;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.weather .city {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 0.05em;
+}
+
+.weather .temp {
+  font-size: 3.4rem;
+  font-weight: 800;
+  margin: 10px 0 15px;
+  letter-spacing: 0.05em;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+body.dark-theme .details {
+  color: var(--icon-color-dark);
+}
+
+.details div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--box-bg-light);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--box-shadow-light);
+  min-width: 110px;
+  justify-content: center;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .details div {
+  background: var(--box-bg-dark);
+  box-shadow: 0 2px 8px var(--box-shadow-dark);
+}
+
+.details i {
+  font-size: 1.5rem;
+}
+
+.weather-icon {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: var(--box-bg-light);
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--box-shadow-light);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+body.dark-theme .weather-icon {
+  background: var(--box-bg-dark);
+  box-shadow: 0 4px 20px var(--box-shadow-dark);
+}
+
+.chart-container {
+  margin-top: 10px;
+  height: 220px;
+  position: relative;
+  background: var(--box-bg-light);
+  border-radius: 16px;
+  padding: 15px 25px 15px 25px;
+  box-shadow: 0 4px 20px var(--box-shadow-light);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  display: none; /* Hide initially */
+}
+
+body.dark-theme .chart-container {
+  background: var(--box-bg-dark);
+  box-shadow: 0 4px 20px var(--box-shadow-dark);
+}
+
+.error-message {
+  color: #d33a3a;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 500px) {
+  .app-container {
+    padding: 18px 15px;
+  }
+  .weather .temp {
+    font-size: 2.8rem;
+  }
+  .details {
+    gap: 15px;
+    font-size: 1rem;
+  }
+  .details div {
+    min-width: 90px;
+    padding: 7px 10px;
+  }
+  #city-input {
+    padding: 10px 12px;
+  }
+}
+
+/* Buttons and inputs dark theme overrides */
+button, input {
+  background-color: #e1e1e1;
+  color: #222;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+body.dark-theme button,
+body.dark-theme input {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+/* Font Awesome icon color in dark theme */
+body.dark-theme .fa {
+  color: #bbb;
+}

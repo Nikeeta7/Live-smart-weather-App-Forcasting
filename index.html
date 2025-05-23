@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Weather App with 5-Day Forecast</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Font Awesome CDN for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    /* Spinner Styles */
+    .spinner {
+      display: none;
+      margin: 15px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #007BFF;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    /* Last updated time */
+    #last-updated {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+    /* Wind direction text */
+    #wind-direction {
+      margin-left: 5px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Top Controls Row -->
+    <div class="top-controls">
+      <button id="unit-toggle" class="temp-toggle active" aria-label="Toggle Temperature Unit">°C</button>
+      <button id="theme-toggle" class="mode-toggle" aria-label="Toggle Theme">🌙</button>
+    </div>
+
+    <!-- Search Row -->
+    <div class="search-row">
+      <input id="city-input" type="text" placeholder="Enter city name" aria-label="City name" />
+      <button id="search-btn" aria-label="Search city"><i class="fa fa-search"></i></button>
+      <button id="geo-btn" aria-label="Use current location"><i class="fa fa-location-crosshairs"></i></button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner" id="loading-spinner" aria-label="Loading" role="status" aria-live="polite"></div>
+
+    <!-- Weather Display -->
+    <section class="weather" aria-live="polite" aria-atomic="true" style="display:none;">
+      <h2 class="city" id="city-name"></h2>
+      <div class="weather-icon">
+        <img id="weather-icon-img" src="" alt="" width="80" height="80" />
+      </div>
+      <p class="temp" id="temp"></p>
+      <p id="last-updated" aria-live="polite" aria-atomic="true"></p>
+      <div class="details" id="details-container">
+        <div>
+          <i class="fa-solid fa-wind"></i>
+          <span id="wind"></span>
+          <span id="wind-direction" aria-label="Wind direction"></span>
+        </div>
+        <div><i class="fa-solid fa-droplet"></i><span id="humidity"></span></div>
+        <div><i class="fa-solid fa-cloud"></i><span id="condition"></span></div>
+      </div>
+    </section>
+
+    <!-- Forecast Chart -->
+    <div class="chart-container" id="forecast-container" aria-label="5 day weather forecast" style="display:none;">
+      <canvas id="forecast-chart"></canvas>
+    </div>
+
+    <!-- Error Message -->
+    <p class="error-message" id="error-message" style="display:none;"></p>
+  </div>
+
+  <!-- Your JS scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
