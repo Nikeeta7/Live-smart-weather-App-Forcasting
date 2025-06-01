@@ -2,8 +2,11 @@
 
 - Real-time
 - user friendly
-
 ---
+
+## Live Demo Link :
+
+ https://nikeeta7.github.io/Live-smart-weather-App-Forcasting/
 
 ## ✅ Overview
 
@@ -105,12 +108,6 @@ to deliver accurate climate updates. Features include temperature unit switching
 - 💡 **Smart Weather Utility**: Represents an ideal smart city or IoT support project foundation.
 
 ---
-
-## Live Demo Link :
-
-
- https://nikeeta7.github.io/Live-smart-weather-App-Forcasting/
-
 
 ## Screenshots
 
